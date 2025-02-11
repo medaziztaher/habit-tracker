@@ -15,12 +15,10 @@ cloudinary.config({
 const createAccount = async (req, res) => {
   try {
     let image;
-    if (req.files["image"][0]) {
-      image = await cloudinary.uploader
-        .upload(req.files["image"][0].path)
-        .catch((error) => {
-          console.log(error)
-        });
+    if (req.files && req.files["image"]) {
+        const file = req.files["image"][0];
+        const result = await cloudinary.uploader.upload(file.path);
+        profilePicture = result.secure_url;
     }
 
     const { username, email, password } = req.body;

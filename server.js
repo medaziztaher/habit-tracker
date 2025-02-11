@@ -28,7 +28,7 @@ app.use(fileUpload({ useTempFiles: true }));
 app.use(cookieParser());
 require("./Configs/dbConnexion");
 
-app.use("/api/users", authRoutes);
+app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/habits", habitRoutes);
 
