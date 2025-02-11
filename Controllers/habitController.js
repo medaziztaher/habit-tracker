@@ -197,11 +197,11 @@ const trackHabit = async (req, res) => {
             user.streak = 0; 
         }
 
-        // Check for milestones and level-up
+      
         await checkMilestones(user);
         await checkLevelUp(user);
 
-        // Save the updated user
+       
         await user.save();
 
         return res.status(200).json({
